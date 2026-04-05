@@ -202,7 +202,156 @@ console.log(date.getFullYear());
 console.log(date.getDate());
 console.log(date.getTime());
 
-date.setHours(16)
+date.setHours(16);
 
 console.log(date.getUTCHours());
 console.log(date, "===date");
+
+var a = 1;
+if (a) {
+  let b = 2;
+}
+function myFoo(name, surname) {
+  // var b = 2;
+  // console.log(b, "===b");
+  // return name + " " + surname;
+  alert("Hi " + name + " " + surname);
+}
+
+// alert(b);
+
+const userName = myFoo("Abdullah", "Motiwala");
+console.log(userName);
+myFoo("Ahsan", "abcd");
+// const result123 = myFoo
+
+// conventional function
+// function myFoo2(){}
+// anonymous function
+// function (){}
+// IIFE Immediate Invoke Function Expression
+// let userName1 = "Username";
+// alert(userName1);
+// (function () {
+//   let userName = "Username";
+//   alert(userName);
+// })();
+
+let day = 9;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = "Monday";
+    break;
+  case 2:
+    dayName = "Tuesday";
+    break;
+  case 3:
+    dayName = "Wednesday";
+    break;
+  case 4:
+    dayName = "Thursday";
+    break;
+  case 5:
+    dayName = "Friday";
+    break;
+  case 6:
+    dayName = "Saturday";
+    break;
+  case 7:
+    dayName = "Sunday";
+    break;
+  default:
+    dayName = "Invalid day";
+}
+
+console.log(dayName); // Output: Wednesday
+
+let replyChances = false;
+
+while (!replyChances) {
+  console.log("Waiting for the message...");
+  // Simulate checking the door
+  replyChances = Math.random() > 0.7; // 30% chance the door opens each check
+}
+
+console.log("The door is open! You can enter.");
+
+let thirsty = false;
+
+do {
+  console.log("Taking a sip of water.");
+  // Simulate whether you're still thirsty
+  thirsty = Math.random() < 0.5; // 50% chance you’re still thirsty
+} while (thirsty);
+
+console.log("You are no longer thirsty!");
+
+const myObj = {
+  a: 1,
+  b: 2,
+  d: function () {
+    console.log(this, "how're you");
+  },
+};
+
+function abc() {
+  console.log(this, "how're you");
+}
+
+abc();
+
+// upsert
+myObj.a = 3; //update
+myObj.c = 3; //insert
+
+delete myObj.a;
+myObj.d();
+
+console.log(myObj);
+
+// const myNumber =12
+function User(firstName, lastName, age) {
+  // let a = 1;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+
+User.prototype.updateName = function (newName) {
+  this.firstName = newName;
+};
+
+const firstUser = new User("Abdullah", "Motiwala", 30);
+console.log(firstUser);
+firstUser.updateName("Mohd.");
+console.log(firstUser);
+
+const secondUser = new User("Abdullah", "Motiwala", 30);
+console.log(secondUser);
+secondUser.updateName("Mohd.");
+console.log(secondUser);
+
+const myAr = [1, 2, 3];
+console.log(myAr);
+
+function myFoo5() {
+  try {
+    // your code here
+    throw new Error("Sample Error");
+  } catch (error) {
+    alert("Error Appeared");
+    console.log(error);
+  }
+}
+
+myFoo5();
+
+const newHTML = `<h1>
+<div>
+
+</div>
+</h1>`;
+
+document.getElementById("").innerHTML += newHTML;
