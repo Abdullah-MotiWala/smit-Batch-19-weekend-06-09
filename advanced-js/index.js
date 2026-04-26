@@ -315,3 +315,157 @@ myFrndCar.startEngine();
 myFrndCar.accelerate(10);
 myFrndCar.displayInfo();
 myFrndCar.stopEngine();
+
+// console.log("1");
+// setTimeout(function () {
+//   console.log("2");
+// }, 0);
+// console.log("3");
+
+// function greet(name) {
+//   console.log("Hello, " + name + "!");
+// }
+// function processUserInput(cb) {
+//   setTimeout(function () {
+//     const name = "Abdullah";
+//     cb(name)
+//   }, 2000);
+
+//   return name;
+// }
+
+// processUserInput(greet);
+
+// function getIngredients(callback) {
+//   setTimeout(() => {
+//     console.log("Got ingredients");
+//     callback();
+//   }, 1000);
+// }
+
+// function chopVegetables(callback) {
+//   setTimeout(() => {
+//     console.log("Chopped vegetables");
+//     callback();
+//   }, 1000);
+// }
+
+// function cookFood(callback) {
+//   setTimeout(() => {
+//     console.log("Cooked food");
+//     callback();
+//   }, 1000);
+// }
+
+// function serveDinner() {
+//   setTimeout(() => {
+//     console.log("Dinner is served!");
+//   }, 1000);
+// }
+
+// getIngredients(function () {
+//   chopVegetables(function () {
+//     cookFood(serveDinner);
+//   });
+// });
+
+const myPromise = new Promise((resolve, reject) => {
+  const isBusAvailable = true;
+  setTimeout(() => {
+    if (isBusAvailable) {
+      resolve({ name: "abdullah" });
+    } else {
+      reject({ error: "Something not working" });
+    }
+  }, 5000);
+});
+
+myPromise
+  .then((value) => {
+    console.log(value);
+    console.log("Hey I'm here");
+  })
+  .catch((error) => {
+    console.log(error);
+    console.log("I can't made it");
+  });
+
+console.log("abc");
+
+function getIngredients() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Got ingredients");
+      resolve("Ingredients ready");
+    }, 1000);
+  });
+}
+
+function cookFood() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Cooked food");
+      resolve("Food cooked");
+    }, 1000);
+  });
+}
+
+function serveDinner() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Dinner served");
+      resolve("Dinner is ready!");
+    }, 1000);
+  });
+}
+
+// async function makeDinner() {
+//   try {
+//     const ingredients = await getIngredients();
+//     console.warn(ingredients);
+
+//     const food = await cookFood();
+//     console.log(food);
+
+//     const dinner = await serveDinner();
+//     console.log(dinner);
+
+//     console.log("Enjoy your meal!");
+//   } catch (error) {
+//     console.error("Something went wrong:", error);
+//   }
+// }
+
+// makeDinner();
+
+// setTimeout(() => {
+//   debugger;
+// }, 5000);
+
+// function abc(){
+//   abc()
+// }
+
+// abc()
+// function abc() {
+//   function def() {
+//     debugger;
+//   }
+
+//   def();
+//   debugger;
+// }
+
+// abc();
+
+// abc()
+
+// debugger;
+
+// var b = 2
+// let a = 1;
+
+
+// DYNAMIC TYPED LANGUAGE
+let a = 1;
+a = "abc"
