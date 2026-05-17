@@ -11,6 +11,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 const addButtonEl = document.getElementById("add");
+
 function addBlogClickHandler() {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;

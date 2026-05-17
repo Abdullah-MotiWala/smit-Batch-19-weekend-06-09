@@ -11,12 +11,16 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // const id = localStorage.get("id");
 
-const id = path.split("?")[1].split("=")[1]
+const titleEl = document.getElementById("title");
+const descriptionEl = document.getElementById("description");
+
+const id = location.href.split("?")[1].split("=")[1];
+console.log(id, "===id");
 
 const updateButtonEl = document.getElementById("update");
 function updateBlogClickHandler() {
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
+  const title = titleEl.value;
+  const description = descriptionEl.value;
 
   const collectionRef = db.collection("blog");
   collectionRef
@@ -37,8 +41,16 @@ updateButtonEl.addEventListener("click", updateBlogClickHandler);
 
 async function getBlog() {
   const collectionRef = db.collection("blog");
-  const data = await collectionRef.doc(id).get();
-  const doc = data.doc();
+  const docRef = collectionRef.doc(id);
+
+  const doc = await docRef.get();
+  const result = doc.data();
+
+  console.log(result, "===reu");
+  titleEl.value = result.title;
+  descriptionEl.value = result.description;
 
   // TODO: add the doc into edit fields
 }
+
+getBlog();

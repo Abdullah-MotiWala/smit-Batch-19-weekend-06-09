@@ -26,15 +26,14 @@ async function fetchBlogs() {
       ...doc.data(),
       id: doc.id,
     };
-
     renderCard(blogData);
   });
 }
 
 function deleteBlogHandler(id) {
   const collectionRef = db.collection("blog");
-  collectionRef
-    .doc(id)
+  const docRef = collectionRef.doc(id);
+  docRef
     .delete()
     .then(() => {
       alert("This blog has been deleted");
@@ -59,6 +58,7 @@ function renderCard({ id, description, title }) {
     </div>`;
 
   blogWrapperEl.innerHTML += html;
+  debugger;
 }
 
 fetchBlogs();
