@@ -9,6 +9,14 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
+let userId = null;
+auth.onAuthStateChanged((user) => {
+  if (!user) {
+    location.href = "/smit-Batch-19-weekend-06-09/firebase/blog/index.html";
+  }
+  userId = user.uid;
+});
 
 const addButtonEl = document.getElementById("add");
 
@@ -21,6 +29,7 @@ function addBlogClickHandler() {
     .add({
       title,
       description,
+      userId,
     })
     .then(() => {
       alert("New Blog has been added");

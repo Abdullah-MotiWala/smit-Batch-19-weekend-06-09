@@ -23,14 +23,13 @@ function updateBlogClickHandler() {
   const description = descriptionEl.value;
 
   const collectionRef = db.collection("blog");
-  collectionRef
-    .doc(id)
-    .update({
+  const docRef = collectionRef.doc(id)
+    docRef.update({
       title,
       description,
     })
     .then(() => {
-      alert("New Blog has been added");
+      alert("New Blog has been updated");
     })
     .catch((error) => {
       console.log("Error", error);
